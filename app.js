@@ -1,5 +1,25 @@
 const axios = require('axios')
-const mfCheck = require('./mf-request/mf-request')
+const mfCheck = require('./mf-request/test.js')
+const gsscraper = require('./google-search-scrapper/gsscraper')
+
+var options = {
+  query: "fotostudio%20hambur",
+  host: 'www.google.de',
+  lang: 'de',
+  limit: 10
+};
+
+gsscraper(options)
+.then((results) => {
+    console.log(results)
+    return mfCheck(results, 45000)
+    .then((testResults) => {
+        console.log(testResults)
+    }).catch((error) => {
+        console.log(error)
+    })
+})
 
 
-mfCheck(['https://developer.mozilla.org', 'https://www.w3schools.com', 'https://www.youtube.com'])
+
+// var results = mfCheck(links)

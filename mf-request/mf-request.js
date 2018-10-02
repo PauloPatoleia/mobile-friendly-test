@@ -59,3 +59,11 @@ function mfCheck(arrayOfLinks) {
    module.exports = mfCheck
    
 ////////////////////////////////////////////////////////////////////////
+
+var req = function(link, timeout) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            
+        }, timeout)
+    })
+}
